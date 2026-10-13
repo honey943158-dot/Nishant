@@ -1,0 +1,229 @@
+/* ==========================================================
+   1. DESIGN TOKENS
+   ========================================================== */
+:root{
+  --bg:#050509;
+  --surface:rgba(255,255,255,.04);
+  --surface-hi:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.09);
+  --text:#ecebf5;
+  --muted:#a3a2b8;          /* contrast on --bg is above 7:1 */
+  --violet:#8b5cf6;
+  --blue:#4f8cff;
+  --cyan:#5eead4;
+  --grad:linear-gradient(120deg,#8b5cf6 0%,#4f8cff 60%,#5eead4 100%);
+  --radius:18px;
+  --font:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Roboto,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --nav-h:68px;
+}
+
+/* ==========================================================
+   2. BASE
+   ========================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{line-height:1.15;margin:0;letter-spacing:-.02em}
+p{margin:0}
+ul{list-style:none;margin:0;padding:0}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 14px;border-radius:8px;z-index:200}
+.skip:focus{left:8px}
+.container{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:110px 0;position:relative}
+.section-head{margin-bottom:48px;max-width:620px}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.7rem)}
+.section-head p{color:var(--muted);margin-top:12px}
+.glass{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ==========================================================
+   3. ANIMATED BACKGROUND (orbs + particle canvas)
+   ========================================================== */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.38;animation:drift 22s ease-in-out infinite alternate}
+.orb.o1{width:520px;height:520px;background:#6d3df0;top:-140px;left:-120px}
+.orb.o2{width:460px;height:460px;background:#1f5fe0;top:35%;right:-160px;animation-delay:-8s}
+.orb.o3{width:380px;height:380px;background:#0e9f93;bottom:-140px;left:25%;opacity:.2;animation-delay:-14s}
+@keyframes drift{to{transform:translate(70px,50px) scale(1.15)}}
+#particles{position:absolute;inset:0;width:100%;height:100%}
+
+/* ==========================================================
+   4. NAVIGATION
+   ========================================================== */
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(5,5,9,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;height:100%}
+.logo{font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+.nav-links{display:flex;gap:6px}
+.nav-links a{padding:8px 14px;border-radius:999px;color:var(--muted);font-size:.95rem;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--text);background:var(--surface-hi);box-shadow:inset 0 0 0 1px var(--border)}
+.burger{display:none;width:44px;height:44px;background:var(--surface);border:1px solid var(--border);border-radius:12px;cursor:pointer;color:var(--text);align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;position:relative;transition:transform .3s,background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* ==========================================================
+   5. BUTTONS
+   ========================================================== */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;border:1px solid transparent;font-family:inherit;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-primary{background:var(--grad);color:#07070d;box-shadow:0 8px 30px -8px rgba(110,80,255,.7)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 36px -8px rgba(110,80,255,.9)}
+.btn-ghost{background:var(--surface);border-color:var(--border);color:var(--text)}
+.btn-ghost:hover{background:var(--surface-hi);transform:translateY(-3px)}
+
+/* ==========================================================
+   6. HERO
+   ========================================================== */
+#home{min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;font-size:.9rem;color:var(--muted);margin-bottom:26px}
+.dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.hero h1{font-size:clamp(2.8rem,7.5vw,5.4rem);font-weight:800;letter-spacing:-.04em}
+.headline{font-size:clamp(1.05rem,2.3vw,1.45rem);color:var(--text);font-weight:600;margin-top:18px}
+.headline .sep{color:var(--violet);margin:0 .35em}
+.terminal{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:24px;padding:12px 18px;font-family:var(--mono);font-size:.92rem;color:var(--muted)}
+.terminal .prompt{color:var(--cyan)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.typed{color:var(--text)}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--cyan);margin-left:3px;vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.intro{max-width:54ch;color:var(--muted);margin-top:22px;font-size:1.08rem}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.photo-wrap{position:relative;justify-self:center;width:min(340px,80%);aspect-ratio:1}
+.photo-wrap::before{content:"";position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,var(--violet),var(--blue),var(--cyan),var(--violet));animation:spin 9s linear infinite;filter:blur(1px)}
+.photo-wrap::after{content:"";position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(closest-side,rgba(110,80,255,.35),transparent);z-index:-1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.photo{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#0d0d18;border:6px solid var(--bg)}
+.photo img{width:100%;height:100%;object-fit:cover}
+/* Fallback shown while the photo placeholder is unchanged */
+.photo .initials{position:absolute;inset:0;display:grid;place-items:center;font-size:4rem;font-weight:800}
+
+/* ==========================================================
+   7. ABOUT
+   ========================================================== */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about-text{padding:34px}
+.about-text p+p{margin-top:16px}
+.about-text p{color:var(--muted)}
+.facts{padding:34px;display:grid;gap:22px;align-content:start}
+.fact dt{color:var(--muted);font-size:.88rem}
+.fact dd{margin:2px 0 0;font-size:1.1rem;font-weight:600}
+
+/* ==========================================================
+   8. SKILLS
+   ========================================================== */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.skill-panel{padding:34px}
+.skill-panel h3{font-size:1.2rem;margin-bottom:24px}
+.skill{margin-bottom:22px}
+.skill-top{display:flex;justify-content:space-between;font-size:.96rem;margin-bottom:8px}
+.skill-top span:last-child{color:var(--muted);font-family:var(--mono);font-size:.88rem}
+.bar{height:8px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--grad);transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{padding:8px 16px;border-radius:999px;font-size:.9rem;background:var(--surface);border:1px solid var(--border);transition:transform .2s,border-color .2s,background .2s;cursor:default}
+.badge:hover{transform:translateY(-3px);border-color:var(--violet);background:rgba(139,92,246,.14)}
+
+/* ==========================================================
+   9. PROJECTS
+   ========================================================== */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:24px}
+.card.upcoming{border-style:dashed}
+.card{position:relative;display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-8px);border-color:rgba(139,92,246,.55);box-shadow:0 24px 50px -20px rgba(100,70,255,.5)}
+.card-art{height:170px;position:relative;overflow:hidden}
+.card-art::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 55%);transition:transform .6s}
+.card:hover .card-art::after{transform:scale(1.4)}
+.a1{background:linear-gradient(135deg,#5b2fd6,#2b4fd9)}
+.a2{background:linear-gradient(135deg,#1f5fe0,#0e9f93)}
+.a3{background:linear-gradient(135deg,#a23fd0,#4f46e5)}
+.card-art svg{position:absolute;right:18px;bottom:16px;width:56px;opacity:.85}
+.card-body{padding:26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card-body h3{font-size:1.25rem}
+.card-body p{color:var(--muted);font-size:.97rem;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-size:.8rem;font-family:var(--mono);color:var(--cyan);background:rgba(94,234,212,.08);padding:4px 10px;border-radius:8px}
+.links{display:flex;gap:18px;margin-top:6px;font-weight:600;font-size:.95rem}
+.links a{color:var(--text);border-bottom:1px solid var(--border);padding-bottom:2px;transition:border-color .2s,color .2s}
+.links a:hover{color:var(--cyan);border-color:var(--cyan)}
+
+/* ==========================================================
+   10. EDUCATION (a real timeline)
+   ========================================================== */
+.timeline{position:relative;padding-left:34px;max-width:760px}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--violet),var(--blue),transparent)}
+.edu{position:relative;padding:26px 28px;margin-bottom:22px}
+.edu::before{content:"";position:absolute;left:-34px;top:32px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--violet);box-shadow:0 0 14px var(--violet)}
+.edu time{color:var(--cyan);font-family:var(--mono);font-size:.85rem}
+.edu h3{font-size:1.2rem;margin:6px 0 4px}
+.edu p{color:var(--muted)}
+
+/* ==========================================================
+   11. CONTACT
+   ========================================================== */
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.contact-info{padding:34px;display:grid;gap:18px;align-content:start}
+.contact-info p{color:var(--muted)}
+.contact-info a.mail{font-weight:600;font-size:1.1rem;word-break:break-all}
+.contact-info a.mail:hover{color:var(--cyan)}
+form{padding:34px;display:grid;gap:20px}
+.field label{display:block;font-size:.92rem;margin-bottom:8px}
+.field input,.field textarea{width:100%;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);font:inherit;transition:border-color .2s,box-shadow .2s}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 4px rgba(139,92,246,.2)}
+.field.invalid input,.field.invalid textarea{border-color:#f87171}
+.error{color:#fca5a5;font-size:.86rem;min-height:1.2em;margin-top:6px}
+.form-status{font-size:.95rem;color:var(--muted)}
+.form-note{color:var(--muted);font-size:.92rem;border-left:2px solid var(--violet);padding-left:12px}
+.note{color:var(--muted);font-size:.9rem;margin-top:4px}
+.form-status.ok{color:#6ee7b7}
+
+/* ==========================================================
+   12. FOOTER
+   ========================================================== */
+footer{border-top:1px solid var(--border);padding:44px 0;background:rgba(0,0,0,.35)}
+.foot{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.foot p{color:var(--muted);font-size:.92rem}
+.socials{display:flex;gap:12px}
+.socials a{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:var(--surface);border:1px solid var(--border);transition:transform .25s,background .25s,border-color .25s}
+.socials a:hover{transform:translateY(-4px);background:rgba(139,92,246,.18);border-color:var(--violet)}
+.socials svg{width:20px;height:20px;fill:currentColor}
+
+/* ==========================================================
+   13. SCROLL REVEAL (only the main blocks, kept subtle)
+   ========================================================== */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ==========================================================
+   14. RESPONSIVE
+   ========================================================== */
+@media (max-width:980px){
+  .about-grid,.skills-grid,.contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  section{padding:84px 0}
+  .hero-grid{grid-template-columns:1fr;text-align:left}
+  .photo-wrap{order:-1;width:min(240px,62%);justify-self:start}
+  .burger{display:inline-flex}
+  .nav-links{position:fixed;top:var(--nav-h);left:12px;right:12px;flex-direction:column;padding:14px;background:rgba(10,10,18,.96);backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:var(--radius);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .25s,transform .25s,visibility .25s}
+  .nav-links.open{opacity:1;visibility:visible;transform:none}
+  .nav-links a{padding:14px 16px;font-size:1.05rem}
+}
+@media (max-width:600px){
+  .about-text,.facts,.skill-panel,.contact-info,form{padding:24px}
+  .btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}

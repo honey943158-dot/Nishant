@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- SEO. EDIT: after hosting, put your real page address in canonical and og:url -->
+<title>Nishant | CSE Student and Aspiring Software Developer</title>
+<meta name="description" content="Portfolio of Nishant, a first-year B.Tech CSE student learning HTML, CSS, JavaScript, C++, Python and AI/ML. See my skills, projects and education.">
+<meta name="author" content="Nishant">
+<meta name="theme-color" content="#050509">
+<link rel="canonical" href="https://your-username.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nishant | CSE Student and Aspiring Software Developer">
+<meta property="og:description" content="First-year B.Tech CSE student building projects in web development, C++ and Python.">
+<meta property="og:url" content="https://your-username.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%238b5cf6'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3EN%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Nishant","jobTitle":"B.Tech CSE Student","url":"https://your-username.github.io/"}
+</script>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.reveal{opacity:1;transform:none}.bar i{width:50%}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Animated background -->
+<div class="bg" aria-hidden="true">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <canvas id="particles"></canvas>
+</div>
+
+<!-- ======================= NAVIGATION ======================= -->
+<header id="top">
+  <nav class="container" aria-label="Main navigation">
+    <a href="#home" class="logo"><span class="grad-text">N</span>ishant</a>
+    <button class="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ======================= HOME ======================= -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="status glass"><span class="dot"></span> First-year B.Tech CSE student</p>
+      <h1>Hi, I'm <span class="grad-text">Nishant</span></h1>
+      <p class="headline">CSE Student<span class="sep">|</span>Aspiring Software Developer<span class="sep">|</span>AI/ML Learner</p>
+      <!-- EDIT: SHORT INTRODUCTION -->
+      <p class="intro">I'm learning to build software one project at a time. Right now I'm working on HTML, CSS, JavaScript, C++ and Python, and exploring the basics of AI and machine learning.</p>
+      <!-- The typed words below are decoration. EDIT the list in data-roles (separate with |) -->
+      <p class="terminal glass">
+        <span class="prompt" aria-hidden="true">&gt;</span>
+        <span class="sr-only">Currently learning C++, Python, web development and AI/ML basics.</span>
+        <span aria-hidden="true">currently learning:</span>
+        <span aria-hidden="true"><span class="typed" id="typed" data-roles="C++ and OOP|Python|HTML, CSS and JavaScript|AI/ML basics"></span><span class="caret"></span></span>
+      </p>
+      <div class="cta">
+        <a href="#projects" class="btn btn-primary">View my projects</a>
+        <a href="#contact" class="btn btn-ghost">Contact me</a>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <div class="photo">
+        <div class="initials grad-text" aria-hidden="true">N</div>
+        <!-- OPTIONAL PROFILE PHOTO: save your image as photo.jpg in the same folder. No photo? Initials show automatically. -->
+        <img src="photo.jpg" alt="Portrait of Nishant" width="340" height="340" onerror="this.remove()">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>About me</h2>
+      <p>My learning journey and where I want to go next.</p>
+    </div>
+    <div class="about-grid">
+      <!-- EDIT: write your own story. Replace both paragraphs. -->
+      <div class="about-text glass reveal">
+        <p><strong>My journey so far.</strong> I am a first-year B.Tech Computer Science student. Write here how you got interested in coding, what you have learned so far, and one thing you are proud of.</p>
+        <p><strong>My goals.</strong> I want to become a software developer and learn AI/ML. Write your own goals here, such as skills you want to learn this year, kinds of projects you want to build, or roles you want to work towards.</p>
+      </div>
+      <!-- EDIT: QUICK FACTS -->
+      <dl class="facts glass reveal">
+        <div class="fact"><dt>Studying</dt><dd>B.Tech CSE, first year</dd></div>
+        <div class="fact"><dt>Location</dt><dd>City, State, India</dd></div>
+        <div class="fact"><dt>Learning</dt><dd>Web, C++, Python, AI/ML basics</dd></div>
+        <div class="fact"><dt>Languages</dt><dd>English, Hindi</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SKILLS ======================= -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Skills</h2>
+      <p>An honest view of where I am. The bars show my current stage, not a test score.</p>
+    </div>
+    <div class="skills-grid">
+      <!--
+        EDIT HONESTLY: for each skill, set the stage label and the data-level number.
+        Just started = 25, Learning = 50, Comfortable with the basics = 75.
+        Copy a .skill block to add a skill.
+      -->
+      <div class="skill-panel glass reveal">
+        <h3>Programming and web</h3>
+        <div class="skill"><div class="skill-top"><span>HTML</span><span>Learning</span></div><div class="bar" role="img" aria-label="HTML: learning"><i data-level="50"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>CSS</span><span>Learning</span></div><div class="bar" role="img" aria-label="CSS: learning"><i data-level="50"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>JavaScript</span><span>Just started</span></div><div class="bar" role="img" aria-label="JavaScript: just started"><i data-level="25"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>C++</span><span>Learning</span></div><div class="bar" role="img" aria-label="C++: learning"><i data-level="50"></i></div></div>
+        <div class="skill"><div class="skill-top"><span>Python</span><span>Just started</span></div><div class="bar" role="img" aria-label="Python: just started"><i data-level="25"></i></div></div>
+        <p class="note">Stages: Just started, Learning, Comfortable with the basics.</p>
+      </div>
+      <div class="skill-panel glass reveal">
+        <h3>Tools and learning goals</h3>
+        <!-- EDIT: only list what is true for you -->
+        <ul class="badges">
+          <li class="badge">VS Code</li><li class="badge">Git and GitHub</li><li class="badge">Problem solving</li>
+          <li class="badge">Data structures (next)</li><li class="badge">AI/ML basics (learning)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROJECTS ======================= -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Projects</h2>
+      <p>Things I have built while learning. More will be added as I grow.</p>
+    </div>
+    <div class="projects-grid">
+      <!--
+        REUSABLE PROJECT CARD: copy a whole <article>...</article> block, paste it after the last card,
+        then change the title, description, tags and links.
+        - Source code link is required. Live demo link is optional: delete that <a> if you have none.
+        - Card art: change class a1 / a2 / a3 for a different gradient.
+      -->
+      <article class="card glass reveal">
+        <div class="card-art a1"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg></div>
+        <div class="card-body">
+          <h3>Calculator</h3>
+          <!-- EDIT: describe what your calculator does and what you learned -->
+          <p>A calculator that performs basic arithmetic. Replace this with what it can do, how you built it, and what you learned.</p>
+          <!-- EDIT: list only technologies you actually used -->
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <div class="links">
+            <a href="https://github.com/your-username/calculator" target="_blank" rel="noopener noreferrer" aria-label="Calculator source code on GitHub">Source code</a>
+            <!-- OPTIONAL live demo, remove the line if none:
+            <a href="https://your-username.github.io/calculator/" target="_blank" rel="noopener noreferrer" aria-label="Calculator live demo">Live demo</a> -->
+          </div>
+        </div>
+      </article>
+      <article class="card upcoming glass reveal">
+        <div class="card-art a3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="card-body">
+          <h3>Next project</h3>
+          <p>I am working on my next project. When it is ready, it will appear here with its code and a short write-up.</p>
+          <ul class="tags"><li>In progress</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EDUCATION ======================= -->
+<section id="education">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Education</h2>
+      <p>Most recent first.</p>
+    </div>
+    <ol class="timeline" style="list-style:none;margin:0">
+      <!-- EDIT: university details (please check the name and years) -->
+      <li class="edu glass reveal">
+        <time>2026 to 2030 (expected)</time>
+        <h3>B.Tech in Computer Science and Engineering</h3>
+        <p>Lamrin Tech Skills University Punjab. Currently in first year. Add subjects you enjoy, such as OOP in C++ or Applied Mathematics.</p>
+      </li>
+      <!-- EDIT: Class 12 details -->
+      <li class="edu glass reveal">
+        <time>Year</time>
+        <h3>Class 12 (Senior Secondary)</h3>
+        <p>School name, city. Board, stream and percentage if you want to include them.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Contact</h2>
+      <p>Questions, feedback or an opportunity? Send me a message.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info glass reveal">
+        <p>Email is the best way to reach me.</p>
+        <!-- Email and links come from SITE at the top of script.js -->
+        <a class="mail" href="mailto:your-email@example.com" data-email="text">your-email@example.com</a>
+        <p>You can also find me on <a class="mail" href="#" data-link="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a class="mail" href="#" data-link="github" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      </div>
+      <form id="contactForm" class="glass reveal" novalidate>
+        <p class="form-note"><strong>How this form works:</strong> this website has no server, so it cannot send messages by itself. After you press the button, your own email app opens with your message filled in. The message is sent only when you press Send there.</p>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="nameErr">
+          <p class="error" id="nameErr" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="emailErr">
+          <p class="error" id="emailErr" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required aria-describedby="msgErr"></textarea>
+          <p class="error" id="msgErr" role="alert"></p>
+        </div>
+        <button class="btn btn-primary" type="submit">Open email draft</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="container foot">
+    <p>&copy; <span id="year"></span> Nishant. Built with HTML, CSS and JavaScript.</p>
+    <ul class="socials">
+      <li><a href="#" data-link="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></svg></a></li>
+      <li><a href="#" data-link="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+      <li><a href="#" data-email aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 013.5 4h17A1.5 1.5 0 0122 5.5v13a1.5 1.5 0 01-1.5 1.5h-17A1.5 1.5 0 012 18.5v-13zm2.2.5l7.8 6 7.8-6H4.2zm15.8 2.3l-7.4 5.7a1 1 0 01-1.2 0L4 8.3V18h16V8.3z"/></svg></a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
